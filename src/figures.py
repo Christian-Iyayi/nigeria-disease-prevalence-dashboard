@@ -108,8 +108,13 @@ def titles(ax, title: str, subtitle: str | None = None) -> None:
         )
 
 
-def footer(fig, text: str) -> None:
-    fig.text(0.005, -0.005, text, fontsize=7.6, color=MUTED, va="top", ha="left")
+def footer(fig, text: str, y: float = -0.005) -> None:
+    fig.text(0.005, y, text, fontsize=7.6, color=MUTED, va="top", ha="left")
+
+
+def note(fig, text: str, y: float = 0.048) -> None:
+    """Editorial footnote rendered just below the axes, above the source line."""
+    fig.text(0.005, y, text, fontsize=8.4, color=MUTED, va="bottom", ha="left")
 
 
 def strip(ax, keep: str = "left") -> None:
@@ -158,15 +163,9 @@ def fig_disease_burden() -> None:
         "Malaria carries two thirds of the recorded burden",
         "Cases recorded across the ten states in the dashboard",
     )
-    ax.text(
-        0.0,
-        -0.14,
-        f"Malaria alone equals {ratio:.1f}x the combined cases of flu, COVID-19 and TB.",
-        transform=ax.transAxes,
-        fontsize=8.6,
-        color=MUTED,
-    )
-    footer(fig, SOURCE)
+    fig.subplots_adjust(bottom=0.165, top=0.855)
+    note(fig, f"Malaria alone equals {ratio:.1f}x the combined cases of flu, COVID-19 and TB.")
+    footer(fig, SOURCE, y=-0.02)
     save(fig, "fig01_disease_burden.png")
 
 
@@ -281,15 +280,12 @@ def fig_state_ranking() -> None:
         borderaxespad=0.2,
         labelcolor=MUTED,
     )
-    ax.text(
-        0.0,
-        -0.13,
+    fig.subplots_adjust(bottom=0.155, top=0.865)
+    note(
+        fig,
         "Oyo appears in the dashboard state filter but no case value was published, so it is omitted.",
-        transform=ax.transAxes,
-        fontsize=8.2,
-        color=MUTED,
     )
-    footer(fig, SOURCE)
+    footer(fig, SOURCE, y=-0.02)
     save(fig, "fig03_covid19_by_state.png")
 
 
