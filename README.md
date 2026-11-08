@@ -20,10 +20,10 @@ dashboard, a curated dataset, and a fully reproducible analysis.**
 
 | Disease | Cases | Share of recorded cases |
 | :--- | ---: | ---: |
-| 🦟 **Malaria** | **71,490** | 67.7% |
-| 🤧 Flu | 23,750 | 22.5% |
-| 🦠 COVID-19 | 5,400 | 5.1% |
-| 🫁 Tuberculosis | 4,980 | 4.7% |
+| **Malaria** | **71,490** | 67.7% |
+| Flu | 23,750 | 22.5% |
+| COVID-19 | 5,400 | 5.1% |
+| Tuberculosis | 4,980 | 4.7% |
 | **Total** | **105,620** | 100% |
 
 *Scope: ten states — Abuja (FCT), Anambra, Cross River, Edo, Enugu, Kaduna, Kano, Lagos, Oyo and
