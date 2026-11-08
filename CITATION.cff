@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this dataset or the analysis, please cite the original report."
+title: "Nigeria Disease Prevalence Dashboard: Key Insights from 10 States"
+abstract: >-
+  A curated dataset, reproducible analysis and publication-quality figures describing
+  Malaria, flu, COVID-19 and tuberculosis case counts across ten Nigerian states, derived
+  from a published Power BI dashboard and documented with full provenance notes.
+authors:
+  - family-names: Iyayi
+    given-names: Christian
+    website: "https://github.com/Christian-Iyayi"
+version: 1.0.0
+date-released: "2026-10-21"
+license: MIT
+url: "https://medium.com/@krisnice2002gmail.com/nigeria-disease-prevalence-dashboard-key-insights-from-10-states-c622920f527a"
+repository-code: "https://github.com/Christian-Iyayi/nigeria-disease-prevalence-dashboard"
+keywords:
+  - public health
+  - nigeria
+  - malaria
+  - covid-19
+  - tuberculosis
+  - power bi
+  - data visualisation
+  - choropleth

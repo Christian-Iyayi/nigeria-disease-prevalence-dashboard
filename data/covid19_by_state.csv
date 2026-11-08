@@ -1,0 +1,11 @@
+state,geopolitical_zone,cases,source,confidence,note
+Abuja (FCT),North Central,6500,Article narrative,High,Dashboard label is partially legible; narrative figure used
+Anambra,South East,3390,Article narrative + dashboard map,High,
+Cross River,South South,3280,Article narrative + dashboard map,High,
+Edo,South South,4370,Article narrative + dashboard map,High,
+Enugu,South East,3350,Article narrative + dashboard map,High,
+Kaduna,North West,9480,Dashboard map label,Medium,Narrative states 4980 (identical to the national TB total) - treated as a transcription error
+Kano,North West,10620,Dashboard map label,Medium,Not mentioned in the article narrative
+Lagos,South West,3620,Article narrative,High,
+Oyo,South West,,Not reported,Low,Present in the dashboard state filter but no value published
+Rivers,South South,1530,Article narrative + dashboard map,High,

@@ -1,0 +1,112 @@
+{
+  "diseases": [
+    {
+      "disease": "Malaria",
+      "cases": 71490,
+      "share_of_total_pct": 67.69
+    },
+    {
+      "disease": "Flu",
+      "cases": 23750,
+      "share_of_total_pct": 22.49
+    },
+    {
+      "disease": "COVID-19",
+      "cases": 5400,
+      "share_of_total_pct": 5.11
+    },
+    {
+      "disease": "Tuberculosis",
+      "cases": 4980,
+      "share_of_total_pct": 4.72
+    }
+  ],
+  "total_cases_all_diseases": 105620,
+  "disease_classes": 4,
+  "malaria_share_pct": 67.69,
+  "malaria_vs_rest_ratio": 2.09,
+  "runner_up": {
+    "disease": "Flu",
+    "cases": 23750,
+    "share_of_total_pct": 22.49
+  },
+  "states_in_scope": 10,
+  "states_with_published_value": 9,
+  "states_missing_value": [
+    "Oyo"
+  ],
+  "covid_state_values_sum": 46140,
+  "covid_kpi_total": 5400,
+  "covid_top5": [
+    {
+      "state": "Kano",
+      "zone": "North West",
+      "cases": 10620,
+      "source": "Dashboard map label",
+      "confidence": "Medium"
+    },
+    {
+      "state": "Kaduna",
+      "zone": "North West",
+      "cases": 9480,
+      "source": "Dashboard map label",
+      "confidence": "Medium"
+    },
+    {
+      "state": "Abuja (FCT)",
+      "zone": "North Central",
+      "cases": 6500,
+      "source": "Article narrative",
+      "confidence": "High"
+    },
+    {
+      "state": "Edo",
+      "zone": "South South",
+      "cases": 4370,
+      "source": "Article narrative + dashboard map",
+      "confidence": "High"
+    },
+    {
+      "state": "Lagos",
+      "zone": "South West",
+      "cases": 3620,
+      "source": "Article narrative",
+      "confidence": "High"
+    }
+  ],
+  "covid_lowest": [
+    {
+      "state": "Enugu",
+      "zone": "South East",
+      "cases": 3350,
+      "source": "Article narrative + dashboard map",
+      "confidence": "High"
+    },
+    {
+      "state": "Cross River",
+      "zone": "South South",
+      "cases": 3280,
+      "source": "Article narrative + dashboard map",
+      "confidence": "High"
+    },
+    {
+      "state": "Rivers",
+      "zone": "South South",
+      "cases": 1530,
+      "source": "Article narrative + dashboard map",
+      "confidence": "High"
+    }
+  ],
+  "covid_by_zone": {
+    "North West": 20100,
+    "South South": 9180,
+    "South East": 6740,
+    "North Central": 6500,
+    "South West": 3620
+  },
+  "notes": [
+    "Totals for Malaria, Flu, COVID-19 and Tuberculosis come from the dashboard KPI cards and are internally consistent.",
+    "State-level COVID-19 figures do not sum to the 5,400 KPI card; treat the state values as a relative ranking, not an absolute count.",
+    "Oyo is present in the dashboard state filter but no case value was published for it."
+  ]
+}

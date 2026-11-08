@@ -1,0 +1,6 @@
+# Runtime dependency for figure generation.
+# Metrics and validation use the Python standard library only.
+matplotlib>=3.7
+
+# Optional, for the short pandas snippet in the README.
+pandas>=2.0

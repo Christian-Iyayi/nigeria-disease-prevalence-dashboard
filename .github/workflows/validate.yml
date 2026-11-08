@@ -1,0 +1,82 @@
+name: Validate dataset
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Data checks (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Validate CSVs and geodata
+        run: python src/validate.py
+
+      - name: Recompute metrics
+        run: python src/analysis.py
+
+      - name: Rebuild figures
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python src/figures.py
+
+      - name: Check the committed metrics match the data
+        run: |
+          # PNG bytes depend on the local matplotlib build, so only the generated
+          # metrics are compared byte for byte.
+          if ! git diff --quiet -- outputs; then
+            echo "::error::Generated metrics differ from the committed versions."
+            git --no-pager diff -- outputs
+            exit 1
+          fi
+          echo "Metrics match what is committed; figures rebuilt cleanly."
+
+  markdown-links:
+    name: Local documentation links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify relative links in documentation resolve
+        run: |
+          python - <<'PY'
+          import re, sys
+          from pathlib import Path
+
+          root = Path(".")
+          files = [root / "README.md", *[p for p in (root / "docs").glob("*.md")]]
+          pattern = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
+          broken = []
+
+          for path in files:
+              text = path.read_text(encoding="utf-8")
+              for target in pattern.findall(text):
+                  if target.startswith(("http://", "https://", "mailto:", "#")):
+                      continue
+                  clean = target.split("#")[0]
+                  if not clean:
+                      continue
+                  if not (path.parent / clean).resolve().exists():
+                      broken.append(f"{path}: {target}")
+
+          if broken:
+              print("Broken relative links:")
+              print("\n".join(broken))
+              sys.exit(1)
+          print("All relative links resolve.")
+          PY
